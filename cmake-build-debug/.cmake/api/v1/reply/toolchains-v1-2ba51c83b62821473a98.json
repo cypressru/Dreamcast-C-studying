@@ -1,0 +1,48 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include",
+						"/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed",
+						"/opt/toolchains/dc/sh-elf/sh-elf/include"
+					],
+					"linkDirectories" : 
+					[
+						"/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0",
+						"/opt/toolchains/dc/sh-elf/sh-elf/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"gcc-Os-4-200",
+						"c",
+						"gcc",
+						"gcc-Os-4-200"
+					]
+				},
+				"path" : "/opt/toolchains/dc/sh-elf/bin/sh-elf-gcc",
+				"version" : "13.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

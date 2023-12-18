@@ -1,0 +1,206 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:206 (message)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      The target system is: Generic-ELF - 1 - SH4
+      The host system is: Linux - 5.15.0-91-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /opt/toolchains/dc/sh-elf/bin/sh-elf-gcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/3.27.0/CompilerIdC/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:7 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-YtgZgt"
+      binary: "/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-YtgZgt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-YtgZgt'
+        
+        Run Build Command(s): /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_fa0f6
+        [1/2] /opt/toolchains/dc/sh-elf/bin/sh-elf-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -c /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/opt/toolchains/dc/sh-elf/bin/sh-elf-gcc
+        Target: sh-elf
+        Configured with: ../gcc-13.2.0/configure --target=sh-elf --prefix=/opt/toolchains/dc/sh-elf --with-newlib --disable-libssp --enable-threads=kos --enable-languages=c,c++,objc,obj-c++ --enable-checking=release --with-multilib-list=m4-single-only --with-endian=little --with-cpu=m4-single-only CC=cc CXX=g++
+        Thread model: kos
+        Supported LTO compression algorithms: zlib
+        gcc version 13.2.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/'
+         /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/cc1 -quiet -v /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_fa0f6.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -version -fdiagnostics-color=always -o /tmp/ccUDYcUJ.s
+        GNU C17 (GCC) version 13.2.0 (sh-elf)
+        	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/sys-include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include
+         /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed
+         /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/include
+        End of search list.
+        Compiler executable checksum: bdb9f600817199bc5b768680f579a2af
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/'
+         /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/as -little -o CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj /tmp/ccUDYcUJ.s
+        COMPILER_PATH=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/
+        LIBRARY_PATH=/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.'
+        [2/2] : && /opt/toolchains/dc/sh-elf/bin/sh-elf-gcc  -v CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -o cmTC_fa0f6.elf   && :
+        Using built-in specs.
+        COLLECT_GCC=/opt/toolchains/dc/sh-elf/bin/sh-elf-gcc
+        COLLECT_LTO_WRAPPER=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/lto-wrapper
+        Target: sh-elf
+        Configured with: ../gcc-13.2.0/configure --target=sh-elf --prefix=/opt/toolchains/dc/sh-elf --with-newlib --disable-libssp --enable-threads=kos --enable-languages=c,c++,objc,obj-c++ --enable-checking=release --with-multilib-list=m4-single-only --with-endian=little --with-cpu=m4-single-only CC=cc CXX=g++
+        Thread model: kos
+        Supported LTO compression algorithms: zlib
+        gcc version 13.2.0 (GCC) 
+        COMPILER_PATH=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/
+        LIBRARY_PATH=/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fa0f6.elf' '-dumpdir' 'cmTC_fa0f6.elf.'
+         /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/collect2 -plugin /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/liblto_plugin.so -plugin-opt=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTARnIL.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc-Os-4-200 -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc-Os-4-200 -m shlelf -o cmTC_fa0f6.elf /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crt1.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crti.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtbegin.o -L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0 -L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -lgcc -lgcc-Os-4-200 -lc -lgcc -lgcc-Os-4-200 /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtend.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fa0f6.elf' '-dumpdir' 'cmTC_fa0f6.elf.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include]
+          add: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed]
+          add: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/include]
+        end of search list found
+        collapse include dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include] ==> [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include]
+        collapse include dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed] ==> [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed]
+        collapse include dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/include] ==> [/opt/toolchains/dc/sh-elf/sh-elf/include]
+        implicit include dirs: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include;/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed;/opt/toolchains/dc/sh-elf/sh-elf/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(sh-elf-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-YtgZgt']
+        ignore line: []
+        ignore line: [Run Build Command(s): /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_fa0f6]
+        ignore line: [[1/2] /opt/toolchains/dc/sh-elf/bin/sh-elf-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -c /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/opt/toolchains/dc/sh-elf/bin/sh-elf-gcc]
+        ignore line: [Target: sh-elf]
+        ignore line: [Configured with: ../gcc-13.2.0/configure --target=sh-elf --prefix=/opt/toolchains/dc/sh-elf --with-newlib --disable-libssp --enable-threads=kos --enable-languages=c c++ objc obj-c++ --enable-checking=release --with-multilib-list=m4-single-only --with-endian=little --with-cpu=m4-single-only CC=cc CXX=g++]
+        ignore line: [Thread model: kos]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/']
+        ignore line: [ /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/cc1 -quiet -v /home/cyp/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_fa0f6.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -version -fdiagnostics-color=always -o /tmp/ccUDYcUJ.s]
+        ignore line: [GNU C17 (GCC) version 13.2.0 (sh-elf)]
+        ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/sys-include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include]
+        ignore line: [ /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/include-fixed]
+        ignore line: [ /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: bdb9f600817199bc5b768680f579a2af]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/']
+        ignore line: [ /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/as -little -o CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj /tmp/ccUDYcUJ.s]
+        ignore line: [COMPILER_PATH=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj' '-c' '-dumpdir' 'CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.']
+        ignore line: [[2/2] : && /opt/toolchains/dc/sh-elf/bin/sh-elf-gcc  -v CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -o cmTC_fa0f6.elf   && :]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/opt/toolchains/dc/sh-elf/bin/sh-elf-gcc]
+        ignore line: [COLLECT_LTO_WRAPPER=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/lto-wrapper]
+        ignore line: [Target: sh-elf]
+        ignore line: [Configured with: ../gcc-13.2.0/configure --target=sh-elf --prefix=/opt/toolchains/dc/sh-elf --with-newlib --disable-libssp --enable-threads=kos --enable-languages=c c++ objc obj-c++ --enable-checking=release --with-multilib-list=m4-single-only --with-endian=little --with-cpu=m4-single-only CC=cc CXX=g++]
+        ignore line: [Thread model: kos]
+        ignore line: [Supported LTO compression algorithms: zlib]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COMPILER_PATH=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/bin/]
+        ignore line: [LIBRARY_PATH=/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/:/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fa0f6.elf' '-dumpdir' 'cmTC_fa0f6.elf.']
+        link line: [ /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/collect2 -plugin /opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/liblto_plugin.so -plugin-opt=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccTARnIL.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc-Os-4-200 -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc-Os-4-200 -m shlelf -o cmTC_fa0f6.elf /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crt1.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crti.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtbegin.o -L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0 -L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj -lgcc -lgcc-Os-4-200 -lc -lgcc -lgcc-Os-4-200 /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtend.o /opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtn.o]
+          arg [/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/opt/toolchains/dc/sh-elf/libexec/gcc/sh-elf/13.2.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccTARnIL.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc-Os-4-200] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc-Os-4-200] ==> ignore
+          arg [-m] ==> ignore
+          arg [shlelf] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_fa0f6.elf] ==> ignore
+          arg [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crt1.o] ==> obj [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crt1.o]
+          arg [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crti.o] ==> obj [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crti.o]
+          arg [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtbegin.o] ==> obj [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtbegin.o]
+          arg [-L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0] ==> dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0]
+          arg [-L/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib] ==> dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib]
+          arg [CMakeFiles/cmTC_fa0f6.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc-Os-4-200] ==> lib [gcc-Os-4-200]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc-Os-4-200] ==> lib [gcc-Os-4-200]
+          arg [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtend.o] ==> obj [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtend.o]
+          arg [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtn.o] ==> obj [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtn.o]
+        collapse library dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0] ==> [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0]
+        collapse library dir [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/../../../../sh-elf/lib] ==> [/opt/toolchains/dc/sh-elf/sh-elf/lib]
+        implicit libs: [gcc;gcc-Os-4-200;c;gcc;gcc-Os-4-200]
+        implicit objs: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crt1.o;/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crti.o;/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtbegin.o;/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtend.o;/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0/crtn.o]
+        implicit dirs: [/opt/toolchains/dc/sh-elf/lib/gcc/sh-elf/13.2.0;/opt/toolchains/dc/sh-elf/sh-elf/lib]
+        implicit fwks: []
+      
+      
+...
