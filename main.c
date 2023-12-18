@@ -1,5 +1,16 @@
 #include <stdio.h>
-#include <kos.h>
+#include <stdint.h>
+
+#include <kos/init.h>
+
+#include <dc/maple.h>
+#include <dc/maple/controller.h>
+#include <dc/maple/vmu.h>
+
+#include <arch/arch.h>
+
+#include <plx/font.h>
+
 
 /* These macros tell KOS how to initialize itself. All of this initialization
    happens before main() gets called, and the shutdown happens afterwards. So
@@ -12,11 +23,11 @@
 
    You can OR any or all of those together. If you want to start out with
    the current KOS defaults, use INIT_DEFAULT (or leave it out entirely). */
-KOS_INIT_FLAGS(INIT_DEFAULT | INIT_MALLOCSTATS);
+KOS_INIT_FLAGS(INIT_DEFAULT);
 
 
 
-int main() {
-    printf("I'll be a game one day!\n");
+int main(int argc, char *argv[]) {
+    printf("\nI'll be a game one day!\n\n");
     return 0;
 }
