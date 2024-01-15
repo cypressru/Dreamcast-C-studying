@@ -14,6 +14,10 @@ SET(CMAKE_EXECUTABLE_SUFFIX_CXX ".elf")
 
 add_executable(untitled main.c)
 
+target_link_libraries(untitled mp3 m)
+
+
 kos_add_romdisk(untitled romdisk)
 kos_add_binary(untitled wfont.bin wfont)
+
 

@@ -67,9 +67,9 @@ build CMakeFiles/untitled.dir/main.c.obj: C_COMPILER__untitled_unscanned_Debug /
 
 build untitled.elf: C_EXECUTABLE_LINKER__untitled_Debug romdisk.o wfont.o CMakeFiles/untitled.dir/main.c.obj
   FLAGS = -g
-  LINK_FLAGS = -Wl,-Ttext=0x8c010000 -T/opt/toolchains/dc/kos/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,--gc-sections -nodefaultlibs -L/opt/toolchains/dc/kos/lib/dreamcast -L/opt/toolchains/dc/kos/addons/lib/dreamcast -L/opt/toolchains/dc/kos/../kos-ports/lib -lm -lz -lpng
-  LINK_LIBRARIES = -Wl,--start-group  -lstdc++  -lkallisti  -lc  -lgcc  -Wl,--end-group  -lm  -lpng  -lz  -lm  -Wl,--start-group  -lstdc++  -lkallisti  -lc  -lgcc  -Wl,--end-group  -lm  -lpng  -lz  -lm
-  LINK_PATH = -L/opt/toolchains/dc/kos/lib/dreamcast   -L/opt/toolchains/dc/kos/addons/lib/dreamcast   -L/opt/toolchains/dc/kos/../kos-ports/lib   -L/opt/toolchains/dc/kos-ports/lib
+  LINK_FLAGS = -Wl,-Ttext=0x8c010000 -T/opt/toolchains/dc/kos/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,--gc-sections -nodefaultlibs -L/opt/toolchains/dc/kos/lib/dreamcast -L/opt/toolchains/dc/kos/addons/lib/dreamcast -L/opt/toolchains/dc/kos/../kos-ports/lib
+  LINK_LIBRARIES = -Wl,--start-group  -lstdc++  -lkallisti  -lc  -lgcc  -Wl,--end-group  -lm  -lmp3  -lm
+  LINK_PATH = -L/opt/toolchains/dc/kos/lib/dreamcast   -L/opt/toolchains/dc/kos/addons/lib/dreamcast   -L/opt/toolchains/dc/kos/../kos-ports/lib
   OBJECT_DIR = CMakeFiles/untitled.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -113,7 +113,7 @@ build romdisk.o | ${cmake_ninja_workdir}romdisk.o: CUSTOM_COMMAND romdisk_tmp.o
 # Custom command for wfont.o
 
 build wfont.o | ${cmake_ninja_workdir}wfont.o: CUSTOM_COMMAND /home/cyp/CLionProjects/untitled/wfont.bin
-  COMMAND = cd /home/cyp/CLionProjects/untitled/cmake-build-debug && /opt/toolchains/dc/kos/utils/bin2o/bin2o wfont.bin wfont /home/cyp/CLionProjects/untitled/cmake-build-debug/wfont.o
+  COMMAND = cd /home/cyp/CLionProjects/untitled/cmake-build-debug && /opt/toolchains/dc/kos/utils/bin2o/bin2o /home/cyp/CLionProjects/untitled/wfont.bin wfont /home/cyp/CLionProjects/untitled/cmake-build-debug/wfont.o
   DESC = Generating wfont.o
   restat = 1
 
@@ -130,8 +130,8 @@ build romdisk_tmp.o | ${cmake_ninja_workdir}romdisk_tmp.o: CUSTOM_COMMAND romdis
 #############################################
 # Custom command for romdisk.img
 
-build romdisk.img | ${cmake_ninja_workdir}romdisk.img: CUSTOM_COMMAND /home/cyp/CLionProjects/untitled/romdisk/Chikoi$ The$ Maid$ -$ Insertion.mp3 /home/cyp/CLionProjects/untitled/romdisk/axaxax.txf /home/cyp/CLionProjects/untitled/romdisk/background.png /home/cyp/CLionProjects/untitled/romdisk/couldbebluer.png /home/cyp/CLionProjects/untitled/romdisk/text.gz
-  COMMAND = cd /home/cyp/CLionProjects/untitled/cmake-build-debug && /opt/toolchains/dc/kos/utils/genromfs/genromfs -f /home/cyp/CLionProjects/untitled/cmake-build-debug/romdisk.img -d romdisk -v
+build romdisk.img | ${cmake_ninja_workdir}romdisk.img: CUSTOM_COMMAND /home/cyp/CLionProjects/untitled/romdisk/axaxax.txf /home/cyp/CLionProjects/untitled/romdisk/background.png /home/cyp/CLionProjects/untitled/romdisk/couldbebluer.png /home/cyp/CLionProjects/untitled/romdisk/test1.mp3 /home/cyp/CLionProjects/untitled/romdisk/text.gz
+  COMMAND = cd /home/cyp/CLionProjects/untitled/cmake-build-debug && /opt/toolchains/dc/kos/utils/genromfs/genromfs -f /home/cyp/CLionProjects/untitled/cmake-build-debug/romdisk.img -d /home/cyp/CLionProjects/untitled/romdisk -v
   DESC = Generating romdisk.img
   restat = 1
 

@@ -23,9 +23,10 @@
 #include <zlib/zlib.h>
 #include <unistd.h>
 #include <mp3/sndserver.h>
+#include <oggvorbis/sndoggvorbis.h>
 
 
-
+#define LOOP 1
 /* These macros tell KOS how to initialize itself. All of this initialization
    happens before main() gets called, and the shutdown happens afterwards. So
    you need to set any flags you want here. Here are some possibilities:
@@ -42,11 +43,19 @@ long bitrateold, bitratenew;
 
 
 int main(int argc, char **argv) {
-    int snd_stream_init();
+
+    /* Initializing the KOS sound system */
+    snd_stream_init();
+    mp3_init();
+    mp3_volume(120);
+    mp3_start("/rd/test1.mp3", LOOP);
+
+
     auto i = 2;
     int x, y, o;
 
-    for(y = 0; y < 480; y++)
+   /* Uncomment to get repeating squares, it's commented out now to test other code
+    * for(y = 0; y < 480; y++)
         for(x = 0; x < 640; x++) {
             int c = (x ^ y) & 255;
             vram_s[y * 640 + x] = ((c >> 3) << 12)
