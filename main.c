@@ -26,7 +26,7 @@
 #include <oggvorbis/sndoggvorbis.h>
 
 
-#define LOOP 1
+#define LOOP 10
 /* These macros tell KOS how to initialize itself. All of this initialization
    happens before main() gets called, and the shutdown happens afterwards. So
    you need to set any flags you want here. Here are some possibilities:
@@ -42,7 +42,74 @@ long bitrateold, bitratenew;
     KOS_INIT_FLAGS(INIT_DEFAULT);
 
 
+    extern int zlib_getlength(char*);
+
+    /* texture stuff */
+    pvr_ptr_t font_tex;
+    pvr_ptr_t back_tex;
+    char *data;
+
+
+/* init background */
+void back_init(void) {
+    back_tex = pvr_mem_malloc(512 * 512 * 2);
+    png_to_texture("/rd/couldbebluer.png", back_tex, PNG_NO_ALPHA);
+}
+
+
+
+/* draw background */
+void draw_back(void) {
+    pvr_poly_cxt_t cxt;
+    pvr_poly_hdr_t hdr;
+    pvr_vertex_t vert;
+
+    pvr_poly_cxt_txr(&cxt, PVR_LIST_OP_POLY, PVR_TXRFMT_RGB565, 512, 512, back_tex, PVR_FILTER_BILINEAR);
+    pvr_poly_compile(&hdr, &cxt);
+    pvr_prim(&hdr, sizeof(hdr));
+
+    vert.argb = PVR_PACK_COLOR(1.0f, 1.0f, 1.0f, 1.0f);
+    vert.oargb = 0;
+    vert.flags = PVR_CMD_VERTEX;
+
+    vert.x = 0.0f;
+    vert.y = 0.0f;
+    vert.z = 1.0f;
+    vert.u = 0.0f;
+    vert.v = 0.0f;
+    pvr_prim(&vert, sizeof(vert));
+
+    vert.x = 640.0f;
+    vert.y = 0.0f;
+    vert.z = 1.0f;
+    vert.u = 1.0f;
+    vert.v = 0.0f;
+    pvr_prim(&vert, sizeof(vert));
+
+    vert.x = 1.0f;
+    vert.y = 480.0f;
+    vert.z = 1.0f;
+    vert.u = 0.0f;
+    vert.v = 1.0f;
+    pvr_prim(&vert, sizeof(vert));
+
+    vert.x = 640.0f;
+    vert.y = 480.0f;
+    vert.z = 1.0f;
+    vert.u = 1.0f;
+    vert.v = 1.0f;
+    vert.flags = PVR_CMD_VERTEX_EOL;
+    pvr_prim(&vert, sizeof(vert));
+}
+
+
 int main(int argc, char **argv) {
+
+    /* init kos ? */
+    pvr_init_defaults();
+
+    /* init background */
+    back_init();
 
     /* Initializing the KOS sound system */
     snd_stream_init();

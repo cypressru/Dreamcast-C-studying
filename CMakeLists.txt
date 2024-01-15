@@ -14,7 +14,7 @@ SET(CMAKE_EXECUTABLE_SUFFIX_CXX ".elf")
 
 add_executable(untitled main.c)
 
-target_link_libraries(untitled mp3 m)
+target_link_libraries(untitled png z mp3 m)
 
 
 kos_add_romdisk(untitled romdisk)
