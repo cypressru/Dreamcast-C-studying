@@ -168,7 +168,7 @@ int main(int argc, char **argv) {
     cont_btn_callback(0, CONT_START, (cont_btn_callback_t)arch_exit);
 
 
-
+    /* draw one frame of png */
     draw_frame();
 
     /* Just trap here waiting for the button press */
