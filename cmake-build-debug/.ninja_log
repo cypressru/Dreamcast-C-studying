@@ -1,11 +1,6 @@
 # ninja log v5
-0	17	1702874370884535508	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
-17	71	1702874370936536935	untitled.elf	7ea2768cd0712ac2
-0	28	1702874640363956455	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
-28	61	1702874640395957340	untitled.elf	7ea2768cd0712ac2
-1	28	1702875038026991375	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
-28	60	1702875038054992155	untitled.elf	7ea2768cd0712ac2
-0	29	1702877816319285184	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
-0	20	1702878870192292209	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
-20	52	1702878870224293185	untitled.elf	7ea2768cd0712ac2
-0	29	1702878992248000119	CMakeFiles/untitled.dir/main.c.obj	707227ad81a807ec
+0	41	1704908376082047975	CMakeFiles/untitled.dir/main.c.obj	fb70727d354ce2c3
+0	2	0	/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/cmake.verify_globs	91eac5f6257a586b
+2	12	1705271837908983587	build.ninja	9b0c870d33c39436
+41	77	1704908376114048902	untitled.elf	4c71bf64ffbaa7dc
+0	2	0	/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/cmake.verify_globs	91eac5f6257a586b
