@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD 23)
 
 add_executable(untitled main.c)
 
-target_link_libraries(untitled -Wl,--start-group -lpng -lmp3 -lm -lz -Wl,--end-group)
+target_link_libraries(untitled -Wl,--start-group -lpng -lmp3 -lm -lz -lc -lgcc -Wl,--end-group)
 
 
 kos_add_romdisk(untitled romdisk)
