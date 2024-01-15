@@ -68,7 +68,7 @@ build CMakeFiles/untitled.dir/main.c.obj: C_COMPILER__untitled_unscanned_Debug /
 build untitled.elf: C_EXECUTABLE_LINKER__untitled_Debug romdisk.o wfont.o CMakeFiles/untitled.dir/main.c.obj
   FLAGS = -g
   LINK_FLAGS = -Wl,-Ttext=0x8c010000 -T/opt/toolchains/dc/kos/utils/ldscripts/shlelf.xc -ml -m4-single-only -Wl,--gc-sections -nodefaultlibs -L/opt/toolchains/dc/kos/lib/dreamcast -L/opt/toolchains/dc/kos/addons/lib/dreamcast -L/opt/toolchains/dc/kos/../kos-ports/lib
-  LINK_LIBRARIES = -Wl,--start-group  -lstdc++  -lkallisti  -lc  -lgcc  -Wl,--end-group  -lm  -lpng  -lz  -lmp3  -lm
+  LINK_LIBRARIES = -Wl,--start-group  -lstdc++  -lkallisti  -lc  -lgcc  -Wl,--end-group  -lm  -Wl,--start-group  -lpng  -lmp3  -lm  -lz  -Wl,--end-group  -lpng  -lmp3  -lz
   LINK_PATH = -L/opt/toolchains/dc/kos/lib/dreamcast   -L/opt/toolchains/dc/kos/addons/lib/dreamcast   -L/opt/toolchains/dc/kos/../kos-ports/lib
   OBJECT_DIR = CMakeFiles/untitled.dir
   POST_BUILD = :

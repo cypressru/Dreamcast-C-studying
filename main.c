@@ -102,6 +102,16 @@ void draw_back(void) {
     pvr_prim(&vert, sizeof(vert));
 }
 
+/* draw one frame */
+void draw_frame(void) {
+    pvr_wait_ready();
+    pvr_scene_begin();
+
+    pvr_list_begin(PVR_LIST_OP_POLY);
+    draw_back();
+    pvr_list_finish();
+
+}
 
 int main(int argc, char **argv) {
 
@@ -156,6 +166,10 @@ int main(int argc, char **argv) {
 
     /* If Start is pressed, exit the app */
     cont_btn_callback(0, CONT_START, (cont_btn_callback_t)arch_exit);
+
+
+
+    draw_frame();
 
     /* Just trap here waiting for the button press */
     for(;;) { usleep(50); }

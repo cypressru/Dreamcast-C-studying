@@ -9,12 +9,10 @@ include(${KOS_BASE}/utils/cmake/dreamcast.toolchain.cmake)
 project(untitled C)
 
 set(CMAKE_C_STANDARD 23)
-SET(CMAKE_EXECUTABLE_SUFFIX_C ".elf")
-SET(CMAKE_EXECUTABLE_SUFFIX_CXX ".elf")
 
 add_executable(untitled main.c)
 
-target_link_libraries(untitled png z mp3 m)
+target_link_libraries(untitled -Wl,--start-group -lpng -lmp3 -lm -lz -Wl,--end-group)
 
 
 kos_add_romdisk(untitled romdisk)
