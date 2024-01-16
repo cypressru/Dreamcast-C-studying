@@ -147,10 +147,10 @@ int main(int argc, char **argv) {
 
         /* Test with ISO8859-1 encoding */
         bfont_set_encoding(BFONT_CODE_ISO8859_1);
-        bfont_draw_str(vram_s + o, 640, 1, "KEEP GOING");
+        bfont_draw_str(vram_s + o, 640, 1, "Keep Going!");
         /* After each string, we'll increment the offset down by one row */
         o += 640 * BFONT_HEIGHT;
-        bfont_draw_str(vram_s + o, 640, 1, "YOU CAN DO IT!");
+        bfont_draw_str(vram_s + o, 640, 1, "You can do it!");
         o += 640 * BFONT_HEIGHT;
 
 

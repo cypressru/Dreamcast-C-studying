@@ -37,3 +37,10 @@
 13	19	1705363796976537663	/home/cyp/CLionProjects/untitled/cmake-build-debug/romdisk.o	32736778025d4a6b
 19	65	1705363797024539365	CMakeFiles/untitled.dir/main.c.obj	fb70727d354ce2c3
 66	106	1705363797060540642	untitled.elf	20eab6bd13d05314
+0	4	0	/home/cyp/CLionProjects/untitled/cmake-build-debug/CMakeFiles/cmake.verify_globs	91eac5f6257a586b
+0	24	1705396132845587483	romdisk_tmp.o	f267dbdc3fd28563
+0	24	1705396132845587483	/home/cyp/CLionProjects/untitled/cmake-build-debug/romdisk_tmp.o	f267dbdc3fd28563
+24	35	1705396132853587765	romdisk.o	32736778025d4a6b
+24	35	1705396132853587765	/home/cyp/CLionProjects/untitled/cmake-build-debug/romdisk.o	32736778025d4a6b
+35	124	1705396132945591008	CMakeFiles/untitled.dir/main.c.obj	fb70727d354ce2c3
+124	196	1705396133017593546	untitled.elf	20eab6bd13d05314
