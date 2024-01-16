@@ -38,88 +38,39 @@
 
    You can OR any or all of those together. If you want to start out with
    the current KOS defaults, use INIT_DEFAULT (or leave it out entirely). */
-long bitrateold, bitratenew;
-    KOS_INIT_FLAGS(INIT_DEFAULT);
 
+    KOS_INIT_FLAGS(INIT_DEFAULT | INIT_MALLOCSTATS);
+
+
+    long bitrateold, bitratenew;
 
     extern int zlib_getlength(char*);
 
-    /* texture stuff */
-    pvr_ptr_t font_tex;
-    pvr_ptr_t back_tex;
-    char *data;
 
 
-/* init background */
-void back_init(void) {
-    back_tex = pvr_mem_malloc(512 * 512 * 2);
-    png_to_texture("/rd/couldbebluer.png", back_tex, PNG_NO_ALPHA);
+
+// This will be two polygons, each being half a gradient bar. Note that
+// it's ok to mix vertex macro types.
+void drawbar(float y, float z, float r, float g, float b) {
+    // Top poly (black to white)
+    plx_vert_fnp(PLX_VERT, 0.0f, y, z, 1.0f, r, g, b);
+    plx_vert_inp(PLX_VERT, 0.0f, y - 20.0f, z, 0xff000000);
+    plx_vert_fnp(PLX_VERT, 640.0f, y, z, 1.0f, r, g, b);
+    plx_vert_inp(PLX_VERT_EOS, 640.0f, y - 20, z, 0xff000000);
+
+    // Bottom poly (white to black)
+    plx_vert_inp(PLX_VERT, 0.0f, y + 20.0f, z, 0xff000000);
+    plx_vert_fnp(PLX_VERT, 0.0f, y, z, 1.0f, r, g, b);
+    plx_vert_inp(PLX_VERT, 640.0f, y + 20.0f, z, 0xff000000);
+    plx_vert_fnp(PLX_VERT_EOS, 640.0f, y, z, 1.0f, r, g, b);
 }
 
 
 
-/* draw background */
-void draw_back(void) {
-    pvr_poly_cxt_t cxt;
-    pvr_poly_hdr_t hdr;
-    pvr_vertex_t vert;
-
-    pvr_poly_cxt_txr(&cxt, PVR_LIST_OP_POLY, PVR_TXRFMT_RGB565, 512, 512, back_tex, PVR_FILTER_BILINEAR);
-    pvr_poly_compile(&hdr, &cxt);
-    pvr_prim(&hdr, sizeof(hdr));
-
-    vert.argb = PVR_PACK_COLOR(1.0f, 1.0f, 1.0f, 1.0f);
-    vert.oargb = 0;
-    vert.flags = PVR_CMD_VERTEX;
-
-    vert.x = 0.0f;
-    vert.y = 0.0f;
-    vert.z = 1.0f;
-    vert.u = 0.0f;
-    vert.v = 0.0f;
-    pvr_prim(&vert, sizeof(vert));
-
-    vert.x = 640.0f;
-    vert.y = 0.0f;
-    vert.z = 1.0f;
-    vert.u = 1.0f;
-    vert.v = 0.0f;
-    pvr_prim(&vert, sizeof(vert));
-
-    vert.x = 1.0f;
-    vert.y = 480.0f;
-    vert.z = 1.0f;
-    vert.u = 0.0f;
-    vert.v = 1.0f;
-    pvr_prim(&vert, sizeof(vert));
-
-    vert.x = 640.0f;
-    vert.y = 480.0f;
-    vert.z = 1.0f;
-    vert.u = 1.0f;
-    vert.v = 1.0f;
-    vert.flags = PVR_CMD_VERTEX_EOL;
-    pvr_prim(&vert, sizeof(vert));
-}
-
-/* draw one frame */
-void draw_frame(void) {
-    pvr_wait_ready();
-    pvr_scene_begin();
-
-    pvr_list_begin(PVR_LIST_OP_POLY);
-    draw_back();
-    pvr_list_finish();
-
-}
 
 int main(int argc, char **argv) {
 
-    /* init kos ? */
-    pvr_init_defaults();
-
-    /* init background */
-    back_init();
+    int o;
 
     /* Initializing the KOS sound system */
     snd_stream_init();
@@ -127,11 +78,106 @@ int main(int argc, char **argv) {
     mp3_volume(120);
     mp3_start("/rd/test1.mp3", LOOP);
 
+    int done, i;
+    float theta, dt;
+    float colors[3 * 10] = {
+        0.0f, 0.5f, 1.0f,
+        0.0f, 1.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 1.0f,
+        0.5f, 0.5f, 0.0f,
+        0.5f, 0.0f, 0.5f,
+        0.5f, 0.5f, 0.5f,
+        0.73f, 0.8f, 0.25f,
+        0.25f, 0.8f, 0.73f,
+        1.0f, 1.0f, 0.0f
+    };
 
-    auto i = 2;
-    int x, y, o;
+    // Init PVR
+    pvr_init_defaults();
 
-   /* Uncomment to get repeating squares, it's commented out now to test other code
+    // Setup the context
+    plx_cxt_init();
+    plx_cxt_texture(NULL);
+    plx_cxt_culling(PLX_CULL_NONE);
+
+    // Setup the frame
+    pvr_wait_ready();
+    pvr_scene_begin();
+    pvr_list_begin(PVR_LIST_OP_POLY);
+
+    // Submit the context
+    plx_cxt_send(PVR_LIST_OP_POLY);
+
+    // Until the user hits start...
+    dt = 2 * F_PI / 160.0f;
+
+    for(done = 0, theta = 0.0f; !done;) {
+        // Check for start
+        MAPLE_FOREACH_BEGIN(MAPLE_FUNC_CONTROLLER, cont_state_t, st)
+
+                    if(st->buttons & CONT_START)
+                        done = 1;
+
+                MAPLE_FOREACH_END()
+
+        // Setup the frame
+        pvr_wait_ready();
+        pvr_scene_begin();
+        pvr_list_begin(PVR_LIST_OP_POLY);
+
+        // Submit the context
+        plx_cxt_send(PVR_LIST_OP_POLY);
+
+        // Draw a sinus bar at our current position and several positions
+        // back. Each bar will get its own Z value (descending).
+        for(i = 0; i < 10; i++) {
+            drawbar(240.0f + fsin(theta - dt * i * 6) * 120.0f, 100.0f - i,
+                    colors[i * 3 + 0], colors[i * 3 + 1], colors[i * 3 + 2]);
+        }
+
+        pvr_scene_finish();
+
+        // Move our counters
+        theta += dt;
+
+        /* Set our starting offset to one letter height away from the
+      top of the screen and two widths from the left */
+        o = (640 * BFONT_HEIGHT) + (BFONT_THIN_WIDTH * 2);
+
+        /* Test with ISO8859-1 encoding */
+        bfont_set_encoding(BFONT_CODE_ISO8859_1);
+        bfont_draw_str(vram_s + o, 640, 1, "KEEP GOING");
+        /* After each string, we'll increment the offset down by one row */
+        o += 640 * BFONT_HEIGHT;
+        bfont_draw_str(vram_s + o, 640, 1, "YOU CAN DO IT!");
+        o += 640 * BFONT_HEIGHT;
+
+
+
+        /* Drawing the special symbols is a bit convoluted. First we'll draw some
+           standard text as above. */
+        bfont_set_encoding(BFONT_CODE_ISO8859_1);
+        bfont_draw_str(vram_s + o, 640, 1, "To exit, press ");
+
+        /* Then we set the mode to raw to draw the special character. */
+        bfont_set_encoding(BFONT_CODE_RAW);
+        /* Adjust the writing to start after "To exit, press " and draw the one char */
+        bfont_draw_wide(vram_s + o + (BFONT_THIN_WIDTH * 15), 640, 1, BFONT_STARTBUTTON);
+
+        /* If Start is pressed, exit the app */
+        cont_btn_callback(0, CONT_START, (cont_btn_callback_t)arch_exit);
+
+        while(theta >= 2 * F_PI)
+            theta -= 2 * F_PI;
+    }
+    return 0;
+}
+
+
+
+
+/* uncomment for red+blue repeating squares
     * for(y = 0; y < 480; y++)
         for(x = 0; x < 640; x++) {
             int c = (x ^ y) & 255;
@@ -140,39 +186,11 @@ int main(int argc, char **argv) {
                                   | ((c >> 3) << 0);
         }
 
-    /* Set our starting offset to one letter height away from the
-       top of the screen and two widths from the left */
-    o = (640 * BFONT_HEIGHT) + (BFONT_THIN_WIDTH * 2);
-
-    /* Test with ISO8859-1 encoding */
-    bfont_set_encoding(BFONT_CODE_ISO8859_1);
-    bfont_draw_str(vram_s + o, 640, 1, "KEEP GOING");
-    /* After each string, we'll increment the offset down by one row */
-    o += 640 * BFONT_HEIGHT;
-    bfont_draw_str(vram_s + o, 640, 1, "YOU CAN DO IT!");
-    o += 640 * BFONT_HEIGHT;
 
 
 
-    /* Drawing the special symbols is a bit convoluted. First we'll draw some
-       standard text as above. */
-    bfont_set_encoding(BFONT_CODE_ISO8859_1);
-    bfont_draw_str(vram_s + o, 640, 1, "To exit, press ");
-
-    /* Then we set the mode to raw to draw the special character. */
-    bfont_set_encoding(BFONT_CODE_RAW);
-    /* Adjust the writing to start after "To exit, press " and draw the one char */
-    bfont_draw_wide(vram_s + o + (BFONT_THIN_WIDTH * 15), 640, 1, BFONT_STARTBUTTON);
-
-    /* If Start is pressed, exit the app */
-    cont_btn_callback(0, CONT_START, (cont_btn_callback_t)arch_exit);
 
 
-    /* draw one frame of png */
-    draw_frame();
-
-    /* Just trap here waiting for the button press */
-    for(;;) { usleep(50); }
 
     return 0;
-}
+} */
